@@ -44,11 +44,67 @@ calculadora(8,2,"/")
 
 #QUESTAO 3:
 fibonacci<-function(n) {
-	if(n==0){
-		result <- 0
+	l <- list()
+	for(i in 0:n) {
+		if(i == 0) {
+			l = append(l, 0)
+		} else if (i == 1) {
+			l = append(l, 1)
+		} else {
+			value = l[[i]] + l[[i-1]]
+			l = append(l, value)
+		}
 	}
-	else if(n == 1) {
-		result <- 1
-	}
-	else if(n == 2)
+	l[0:n]
 }
+fibonacci(2)
+
+
+
+
+
+fibo<-function(n) {
+	phi <- (sqrt(5) + 1)/2
+	fib <- (phi^n - (1-phi)^n) / (2*phi - 1)
+	round(fib)
+}
+fibonacci<-function(n) {
+	return(fibo(0:n))
+}
+
+#Testando:
+fibonacci(0)
+fibonacci(1)
+fibonacci(8)
+
+
+#QUESTAO 4:
+# a)
+impares <- 0:50
+imapres[lapply(imapres, "%%", 2) == 0]
+filtereds = list(0)
+for(impar in impares) {
+	if(impar %% 2 == 1) {
+		filtereds = append(filtereds, impar)
+	}
+}
+
+# b)
+sum<-0
+for(filtered in filtereds) {
+	sum<-sum+filtered
+}
+sum
+
+# c)
+multiplosdetres<-list(0)
+for(filtered in filtereds) {
+	if (filtered%%3==0) {
+			multiplosdetres = append(multiplosdetres, filtered)
+	}
+}
+
+
+
+
+
